@@ -8,12 +8,43 @@
 
 <h:head>
      <title>Primeiro Exemplo usando JSF - olamundo.xhtml</title>
-     <script name="jquery/jquery.js" library="primefaces"></script>
 </h:head>
 
 <h:body>
+     <script>
+     PrimeFaces.locales['pt_BR'] = {
+    		    closeText: 'Fechar',
+    		    prevText: 'Anterior',
+    		    nextText: 'Próximo',
+    		    currentText: 'Começo',
+    		    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    		    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+    		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+    		    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+    		    dayNamesMin: ['D','S','T','Q','Q','S','S'],
+    		    weekHeader: 'Semana',
+    		    firstDay: 0,
+    		    isRTL: false,
+    		    showMonthAfterYear: false,
+    		    yearSuffix: '',
+    		    timeOnlyTitle: 'Só Horas',
+    		    timeText: 'Tempo',
+    		    hourText: 'Hora',
+    		    minuteText: 'Minuto',
+    		    secondText: 'Segundo',
+    		    ampm: false,
+    		    month: 'Mês',
+    		    week: 'Semana',
+    		    day: 'Dia',
+    		    allDayText : 'Todo o Dia'
+    		};
+     </script>
      <h2>Exemplo Ola Mundo com JSF 2.0 e PrimeFaces</h2>
      <br/>
-     <p:calendar id="effect" effect="fold"/>
+     <p:calendar locale="pt_BR" id="effect" effect="fold"/>
+     <br/>
+     <p:panel id="panel" header="JSF - Componentes para WEB">arraste-me</p:panel>
+     <p:draggable for="panel"/>
+     <p:schedule></p:schedule>
 </h:body>
 </html>
