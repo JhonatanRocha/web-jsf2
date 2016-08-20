@@ -18,6 +18,7 @@ import com.jsf.livraria.model.Livro;
 public class LivroBean {
 
 	private Livro livro = new Livro();
+	private Integer livroId;
 	private int autorId;
 
 	public Livro getLivro() {
@@ -27,6 +28,14 @@ public class LivroBean {
 	public List<Livro> getLivros(){
 		return new DAO<Livro>(Livro.class).listaTodos();
 	}
+	
+	public Integer getLivroId() {
+		return livroId;
+	}
+
+	public void setLivroId(Integer livroId) {
+		this.livroId = livroId;
+	}
 
 	public int getAutorId() {
 		return autorId;
@@ -35,6 +44,10 @@ public class LivroBean {
 	public void setAutorId(int autorId) {
 		this.autorId = autorId;
 	}
+	
+	public void carregaPelaId() {
+        this.livro = new DAO<Livro>(Livro.class).buscaPorId(this.livroId);
+    }
 	
 	public List<Autor> getAutores(){
 		return new DAO<Autor>(Autor.class).listaTodos();

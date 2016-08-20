@@ -16,9 +16,22 @@ import com.jsf.livraria.model.Livro;
 public class AutorBean {
 
 	private Autor autor = new Autor();
-
+	private Integer autorId;
+	
 	public Autor getAutor() {
 		return autor;
+	}
+
+	public Integer getAutorId() {
+		return autorId;
+	}
+
+	public void setAutorId(Integer autorId) {
+		this.autorId = autorId;
+	}
+	
+	public void carregaAutorId() {
+		this.autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
 	}
 
 	public void remove(Autor autor){
