@@ -1,16 +1,11 @@
 package com.jsf.livraria.bean;
 
-import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import com.jsf.livraria.dao.DAO;
 import com.jsf.livraria.dao.UsuarioDAO;
-import com.jsf.livraria.model.Autor;
-import com.jsf.livraria.model.Livro;
 import com.jsf.livraria.model.Usuario;
 
 @ManagedBean

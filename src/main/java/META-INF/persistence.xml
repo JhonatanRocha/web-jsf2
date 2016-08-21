@@ -11,6 +11,7 @@
 		<class>com.jsf.livraria.model.Livro</class>
 		<class>com.jsf.livraria.model.Autor</class>
 		<class>com.jsf.livraria.model.Usuario</class>
+		<class>com.jsf.livraria.model.Venda</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

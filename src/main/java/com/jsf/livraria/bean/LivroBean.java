@@ -20,13 +20,23 @@ public class LivroBean {
 	private Livro livro = new Livro();
 	private Integer livroId;
 	private int autorId;
+	private List<Livro> livros;
 
 	public Livro getLivro() {
 		return livro;
 	}
 	
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
 	public List<Livro> getLivros(){
-		return new DAO<Livro>(Livro.class).listaTodos();
+		DAO<Livro> dao = new DAO<Livro>(Livro.class);
+
+	    if(this.livros == null)
+	        this.livros = dao.listaTodos();      
+
+	    return livros;
 	}
 	
 	public Integer getLivroId() {
@@ -65,15 +75,19 @@ public class LivroBean {
 	public void gravar() {
 		System.out.println("Gravando livro " + this.livro.getTitulo());
 
-		if (livro.getAutores().isEmpty()) {
-			//throw new RuntimeException("Livro deve ter pelo menos um Autor.");
+		if (livro.getAutores().isEmpty())
 			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));
-		}
 
-		if(this.livro.getId() == null)
-			new DAO<Livro>(Livro.class).adiciona(this.livro);
-		else
-			new DAO<Livro>(Livro.class).atualiza(this.livro);
+		DAO<Livro> dao = new DAO<Livro>(Livro.class);
+		
+		if(this.livro.getId() == null){
+			dao.adiciona(this.livro);
+			
+			this.livros = dao.listaTodos();
+		} else {
+			dao.atualiza(this.livro);
+		}
+		
 		this.livro = new Livro();
 	}
 	
