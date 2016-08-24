@@ -1,22 +1,25 @@
 package com.jsf.livraria.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import com.jsf.livraria.dao.DAO;
 import com.jsf.livraria.model.Autor;
 import com.jsf.livraria.model.Livro;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class LivroBean {
+public class LivroBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Livro livro = new Livro();
 	private Integer livroId;
 	private int autorId;
