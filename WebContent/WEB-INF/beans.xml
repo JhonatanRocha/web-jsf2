@@ -1,2 +1,5 @@
 <beans>
+    <interceptors>
+        <class>com.jsf.livraria.tx.TransactionManager</class>
+    </interceptors>
 </beans>
